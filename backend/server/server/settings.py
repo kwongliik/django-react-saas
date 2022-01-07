@@ -41,6 +41,14 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'apps.accounts',
+    'corsheaders',
+]
+
+# define which origins are allowed
+CORS_ALLOWED_ORIGINS = [
+    "http://pyhu.ddns.net:8009",
+    "http://localhost:8009",
+    "http://127.0.0.1:8009",
 ]
 
 # configure DRF
@@ -63,6 +71,7 @@ DJOSER = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
